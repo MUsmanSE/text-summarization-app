@@ -9,11 +9,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Hugging Face Spaces
-        uses: huggingface/actions@main
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          hf_token: ${{ secrets.HF_TOKEN }}
-          repo_id: Usman396/Test
-          space_sdk: gradio
-          space_hardware: cpu-basic
-          py_version: "3.9"
+          python-version: "3.9"
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Deploy to Hugging Face
+        uses: peaceiris/actions-huggingface@v2
+        with:
+          huggingface_token: ${{ secrets.HF_TOKEN }}
+          repository: "Usman396/Test"
+          action-type: "space"
+          space-sdk: "gradio"
+          space-hardware: "cpu-basic"
+          directory: "."
