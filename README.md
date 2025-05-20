@@ -1,15 +1,24 @@
+---
+title: Text Summarization App
+emoji: 📝
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: 4.0.0
+app_file: app.py
+pinned: false
+---
+
 # Text Summarization App
 
 This is a simple text summarization application using Hugging Face's BART model.
 
-## Setup
+## How to Use
+1. Enter your text in the input box
+2. Click "Submit" to get a summarized version
+3. The model will generate a concise summary
 
-1. Clone the repository
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment: `source venv/bin/activate`
-4. Install requirements: `make install`
-5. Run the app: `make run`
-
-## Deployment
-
-The app is automatically deployed to Hugging Face Spaces via GitHub Actions.
+## Technical Details
+- Uses facebook/bart-large-cnn model
+- Built with Gradio interface
+- Deployed on Hugging Face Spaces
