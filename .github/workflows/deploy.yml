@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
           
       - name: Deploy to Hugging Face
-        uses: peaceiris/actions-huggingface@v2
+        uses: peaceiris/actions-huggingface@v4
         with:
           huggingface_token: ${{ secrets.HF_TOKEN }}
           repository: "Usman396/Test"
