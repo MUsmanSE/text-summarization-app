@@ -3,20 +3,17 @@ name: Deploy to Hugging Face Spaces
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Deploy to Hugging Face Spaces
-        uses: huggingface/huggingface_hub@main
+        uses: huggingface/actions@main
         with:
           hf_token: ${{ secrets.HF_TOKEN }}
           repo_id: Usman396/Test
           space_sdk: gradio
           space_hardware: cpu-basic
-          app_file: app.py
-          requirements: requirements.txt
+          py_version: "3.9"
